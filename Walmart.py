@@ -178,8 +178,8 @@ with open( walmartData, 'a' ) as f:
                     storeData = [store, address[0], address[1], address[2], address[3]]
                     storeFlag = False
             price = getPrice1( myDriver, item )
-            print(key + '~'.join( storeData ) + '~' + item + '~' + price)
- #           f.write(key +'~'.join( storeData) + '~' + item + '~' + price + '\n')
+ #           print(key + '~' + '~'.join( storeData ) + '~' + item + '~' + price)
+            f.write(key + '~'+ '~'.join( storeData) + '~' + item + '~' + price + '\n')
     myDriver.close
 
 
