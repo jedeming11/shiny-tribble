@@ -106,20 +106,16 @@ def clickItem(driver, item):
 # return: '0' if price is not found or price of the item
 def getPrice2(driver):
     
-    try:
+   try:
         page = requests.get(driver.current_url)
         time.sleep(1)
         data = page.text
         soups = BeautifulSoup(data, 'lxml')
         time.sleep(1)
-        price_dollar =  soups.find("span",{"class","Price-characteristic"})
-        dollars = price_dollar.string
-        price_cents =  soups.find("span",{"class","Price-mantissa"})
-        cents=price_cents.string
-        total_price = dollars+'.'+cents
+        thePrice = soups.find('span' ,itemprop = 'price').get('content')
     except NoSuchElementException:
         return( '0' )
-    
+       
     return( total_price )
 
 def isSamsClub( driver ):
